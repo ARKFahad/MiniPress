@@ -1,0 +1,11 @@
+.main-body {
+    width: 95%;
+    height: 96%;
+    background-color: lightblue;
+    border-radius: 15px; /* Adjust the value for desired roundness */
+}
+.nav-bg-color {
+    width: 90%;
+    height: 50px;
+    background-color:#54acac; /* White background for the nav bar */
+}
