@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Menu option click handlers
+    const menuOptions = document.querySelectorAll('.menu-option');
+    menuOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const menuText = this.querySelector('span:last-child').textContent;
+            const folderType = getFolderTypeFromMenuText(menuText);
+            openWindow(folderType);
+        });
+    });
+
     // Window close button handlers
     const closeButtons = document.querySelectorAll('.close-btn');
     closeButtons.forEach(button => {
@@ -55,6 +65,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function getFolderTypeFromMenuText(menuText) {
+    const menuToFolderMap = {
+        'Read Me': 'readme',
+        'Preferences': 'preferences',
+        'Empty Trash': 'trash',
+        'Logout': 'logout',
+        'Restart': 'restart',
+        'Shutdown': 'shutdown',
+        'Work': 'work',
+        'Open Recent': 'recent',
+        'View All': 'view-all',
+        'Recent Video': 'videos',
+        'My Videos': 'my-videos',
+        'Recent Tutorial': 'tutorials'
+    };
+    
+    return menuToFolderMap[menuText] || menuText.toLowerCase().replace(/\s+/g, '-');
+}
 
 function openWindow(folderType) {
     // Close any existing windows first
