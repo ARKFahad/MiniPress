@@ -13,7 +13,7 @@ body {
 
 /* Menu Bar */
 .menu-bar {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     height: 30px;
     display: flex;
@@ -35,6 +35,10 @@ body {
     transition: background-color 0.2s;
     border-radius: 3px;
     margin-right: 5px;
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .menu-item:hover {
@@ -44,6 +48,51 @@ body {
 .apple-logo {
     font-size: 14px;
     margin-right: 5px;
+}
+
+/* Apple Menu Dropdown */
+.apple-menu {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    display: none;
+    z-index: 2000;
+    padding: 4px 0;
+}
+
+.apple-menu:hover .dropdown-menu {
+    display: block;
+}
+
+.menu-option {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.menu-option:hover {
+    background-color: #007AFF;
+    color: white;
+}
+
+.menu-icon {
+    margin-right: 8px;
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
 }
 
 /* Desktop */
@@ -228,6 +277,10 @@ body {
         min-width: 90vw;
         max-width: 90vw;
         margin: 10px;
+    }
+    
+    .dropdown-menu {
+        min-width: 180px;
     }
 }
 
